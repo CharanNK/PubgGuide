@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/padding20"
+    android:paddingLeft="@dimen/padding20"
+    android:paddingRight="@dimen/padding20"
+    android:paddingBottom="@dimen/padding20"
+    android:background="#FFF"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
+        android:textStyle="bold"
+        android:id="@+id/loot_place_title"
+        android:textSize="25sp"
+        android:textColor="#A1231E"
+        android:text="Settlements, shacks, villages and buildings"/>
+
+    <TextView
+        android:id="@+id/loot_place_desc"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        app:autoSizeTextType="uniform"
+        app:autoSizeMaxTextSize="20sp"
+        app:autoSizeMinTextSize="15sp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="The more you play, the more you'll familiarise yourself with these assorted clusters of buildings around the map, and will probably have your own names for them amongst squads. Having a few go-to options that you repeatedly visit is a good way to get really familiar with your surroundings and increase your chances of winning face-offs with other rogue squads nearby. ** The loot is normally servicable, if a little sparse. A mix of level 1 and 2 gear with some kind of long gun in each cluster, mixed with some SMGs and Shotguns. You can get by on these if you have to, but ideally only when you have to."
+        android:textColor="#000"
+        android:textSize="16sp"
+        tools:ignore="MissingPrefix" />
+
+</LinearLayout>

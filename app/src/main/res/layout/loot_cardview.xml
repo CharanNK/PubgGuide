@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    card_view:cardBackgroundColor="#fff4ea"
+    android:id="@+id/loot_cardview"
+    card_view:cardCornerRadius="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.charanajayworks.pubgguide.fonts.roboto_font
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:textStyle="bold"
+            android:id="@+id/loot_place"
+            android:textColor="#8b4513"
+            android:paddingBottom="5dp"
+            android:paddingLeft="@dimen/padding10"
+            android:paddingRight="@dimen/padding10"
+            android:paddingTop="2dp"
+            android:text="Settlements, shacks, villages and buildings"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+
+                <com.charanajayworks.pubgguide.fonts.lato_font
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    android:text="LOOT QUALITY :"
+                    android:textSize="16sp" />
+
+                <com.charanajayworks.pubgguide.fonts.lato_font
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:id="@+id/loot_quality"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="@dimen/padding10"
+                    android:text="VERY HIGH"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+
+                <com.charanajayworks.pubgguide.fonts.lato_font
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    android:text="QUANTITY :"
+                    android:textSize="16sp" />
+
+                <com.charanajayworks.pubgguide.fonts.lato_font
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:id="@+id/loot_quantity"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="@dimen/padding10"
+                    android:text="VERY HIGH"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3" />
+
+                <com.charanajayworks.pubgguide.fonts.lato_font
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:textStyle="bold"
+                    android:text="RISK :"
+                    android:textSize="16sp" />
+
+                <com.charanajayworks.pubgguide.fonts.lato_font
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:id="@+id/loot_risk"
+                    android:gravity="center_horizontal"
+                    android:paddingLeft="@dimen/padding10"
+                    android:text="VERY HIGH"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:id="@+id/loot_shortdes"
+            android:ellipsize="end"
+            android:paddingTop="5dp"
+            android:paddingLeft="@dimen/padding10"
+            android:paddingRight="@dimen/padding10"
+            android:paddingBottom="5dp"
+            android:textSize="15sp"
+            android:text="A personal favourite, the east coast's Mylta Power is a go-to drop when it's on the edge of the flight path. Thanks to its positioning, a path close to Mylta Power is also close to the Military Base, Mansion, Prison and Novorepnoye, which are all more popular options - and often distract players away from the Power plant. The loot here is occasionally military grade, although there's not quite as much of it. If you're dropping here directly aim for the roof of the large rectangular green building, clean that out, then go to the warehouses around it to finish off the sweep."/>
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

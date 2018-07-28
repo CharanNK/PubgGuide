@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:id="@+id/guide_cv"
+    xmlns:app="http://schemas.android.com/tools"
+    card_view:cardCornerRadius="4dp"
+    android:layout_margin="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:id="@+id/guide_title"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="5dp"
+            app:autoSizeTextType="uniform"
+            android:textStyle="bold"
+            app:autoSizeMaxTextSize="24sp"
+            app:autoSizeMinTextSize="15sp"
+            android:text="Best clothes for PUBG characters"
+            android:textColor="#8b4513"/>
+        <android.support.v4.widget.Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.6"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6.5"
+            android:maxLines="1"
+            android:id="@+id/guide_desc"
+            android:ellipsize="end"
+            android:textColor="#424242"
+            android:padding="@dimen/padding10"
+            android:text="This isn't a fashion show, it's battle royale, so think tactically. If you're wearing white jeans and a yellow puffer jacket, you'll be easily spotted, and easily to target. Think muted shades and of course, camouflage, to give you a tactical advantage. It's tempting to wear a baseball cap, but you really want a helmet."/>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

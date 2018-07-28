@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">PubgGuide</string>
+    <string name="title_tips">Tips</string>
+    <string name="title_weapons">Weapons</string>
+    <string name="title_loot">Loot</string>
+    <string name="title_maps">Maps</string>
+    <string name="title_quality">QUALITY</string>
+    <string name="title_quantity">QUANTITY</string>
+    <string name="title_risk">RISK</string>
+</resources>
