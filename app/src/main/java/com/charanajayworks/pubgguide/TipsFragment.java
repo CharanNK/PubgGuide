@@ -36,36 +36,37 @@ public class TipsFragment extends android.support.v4.app.Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tips_layout,container,false);
 
-        listView = view.findViewById(R.id.display_tips);
+        listView = view.findViewById(R.id.category_recycler);
 
-        sharedPreferences = this.getActivity().getSharedPreferences("PUBG_GUIDE", MODE_PRIVATE);
-        isAdEnabled = sharedPreferences.getBoolean("isadenabled", false);
-
-        if(Math.random()<0.2&&isAdEnabled)
-            showAd();
-
-
+//        sharedPreferences = this.getActivity().getSharedPreferences("PUBG_GUIDE", MODE_PRIVATE);
+//        isAdEnabled = sharedPreferences.getBoolean("isadenabled", false);
+//
+//        if(Math.random()<0.2&&isAdEnabled)
+//            showAd();
+//
+//
         ArrayList<String> tipsList = new ArrayList<>();
-
-        databaseHelper = new DBHelper(getActivity().getApplicationContext());
-        try {
-            databaseHelper.createDataBase();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        try{
-            Cursor cursor = databaseHelper.getTips();
-
-            while (cursor.moveToNext()){
-                tipsList.add(cursor.getString(0));
-            }
-        } catch (Exception ex){
-            ex.printStackTrace();
-        }
+        tipsList.add("WEAPONS");
+//
+//        databaseHelper = new DBHelper(getActivity().getApplicationContext());
+//        try {
+//            databaseHelper.createDataBase();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//        try{
+//            Cursor cursor = databaseHelper.getTips();
+//
+//            while (cursor.moveToNext()){
+//                tipsList.add(cursor.getString(0));
+//            }
+//        } catch (Exception ex){
+//            ex.printStackTrace();
+//        }
 
         TipsViewAdapter adapter = new TipsViewAdapter(tipsList);
-        RecyclerView myView =  (RecyclerView)view.findViewById(R.id.display_tips);
+        RecyclerView myView =  (RecyclerView)view.findViewById(R.id.category_recycler);
         myView.setHasFixedSize(true);
         myView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());

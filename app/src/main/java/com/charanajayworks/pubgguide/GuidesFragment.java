@@ -43,7 +43,7 @@ public class GuidesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tips_layout,container,false);
 
-        guides_recycler = view.findViewById(R.id.display_tips);
+        guides_recycler = view.findViewById(R.id.category_recycler);
 
         sharedPreferences = this.getActivity().getSharedPreferences("PUBG_GUIDE", MODE_PRIVATE);
         isAdEnabled = sharedPreferences.getBoolean("isadenabled", false);
@@ -73,7 +73,7 @@ public class GuidesFragment extends Fragment {
 
 
         final guidesAdapterClass adapter = new guidesAdapterClass(getContext(),guidesList);
-        RecyclerView myView =  (RecyclerView)view.findViewById(R.id.display_tips);
+        RecyclerView myView =  (RecyclerView)view.findViewById(R.id.category_recycler);
         myView.setHasFixedSize(true);
         myView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(getActivity().getApplicationContext());

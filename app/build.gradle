@@ -40,6 +40,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-messaging:12.0.0'
     implementation 'com.google.firebase:firebase-ads:12.0.0'
     implementation 'com.google.firebase:firebase-database:16.0.1'
+    implementation 'com.romainpiel.shimmer:library:1.4.0@aar'
+    implementation 'com.stone.vega.library:VegaLayoutManager:1.0.6'
 }
 
 apply plugin: 'com.google.gms.google-services'

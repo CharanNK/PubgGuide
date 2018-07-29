@@ -8,4 +8,6 @@
     <dimen name="padding20">20dp</dimen>
     <dimen name="padding30">30dp</dimen>
     <dimen name="padding40">40dp</dimen>
+    <dimen name="leftrightmargin">5dp</dimen>
+    <dimen name="topbottommargin">10dp</dimen>
 </resources>
