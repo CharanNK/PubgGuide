@@ -9,21 +9,32 @@ public class CategoryModel {
         this.categoryName = categoryName;
     }
 
-    public int getCategoryImage() {
+    public String getCategoryImage() {
         return categoryImage;
     }
 
-    public void setCategoryImage(int categoryImage) {
+    public void setCategoryImage(String categoryImage) {
         this.categoryImage = categoryImage;
     }
 
     private String categoryName;
 
-    public CategoryModel(String categoryName, int categoryImage) {
-        this.categoryName = categoryName;
-        this.categoryImage = categoryImage;
+    public String getCategoryDesc() {
+        return categoryDesc;
     }
 
-    private int categoryImage;
+    public void setCategoryDesc(String categoryDesc) {
+        this.categoryDesc = categoryDesc;
+    }
+
+    private String categoryDesc;
+
+    public CategoryModel(String categoryName, String categoryImage,String categoryDesc) {
+        this.categoryName = categoryName;
+        this.categoryImage = categoryImage;
+        this.categoryDesc = categoryDesc;
+    }
+
+    private String categoryImage;
 
 }

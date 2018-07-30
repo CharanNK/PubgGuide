@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,6 +15,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
 import com.charanajayworks.pubgguide.R;
 import com.romainpiel.shimmer.Shimmer;
@@ -41,22 +45,32 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, int position) {
         final CategoryModel categoryModel = categoryList.get(position);
 //        String categoryName = categoryModel.getCategoryName();
 //        int categoryImage = categoryModel.getCategoryImage();
 
         holder.categoryName.setText(categoryModel.getCategoryName());
         holder.categoryName.setTypeface(typeface);
-        holder.cardImageLayout.setBackgroundResource(categoryModel.getCategoryImage());
+        Glide.with(mContext).load(categoryModel.getCategoryImage()).into(new SimpleTarget<Drawable>() {
+            @Override
+            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    holder.cardImageLayout.setBackground(resource);
+                    Drawable cardViewBackground = holder.cardImageLayout.getBackground();
+                    cardViewBackground.setColorFilter(0x5F000000, PorterDuff.Mode.SRC_ATOP);
+                }
+            }
+        });;
+        //holder.cardImageLayout.setBackgroundResource(categoryModel.getCategoryImage());
         holder.arrowTextView.setTypeface(typeface);
-
+        holder.categoryDesc.setTypeface(typeface);
+        holder.categoryDesc.setText(categoryModel.getCategoryDesc());
         shimmer = new Shimmer();
-        shimmer.setDuration(1500);
+        shimmer.setDuration(2500);
         shimmer.start(holder.arrowTextView);
 
-        Drawable cardViewBackground = holder.cardImageLayout.getBackground();
-        cardViewBackground.setColorFilter(0x5F000000, PorterDuff.Mode.SRC_ATOP);
+//        holder.categoryCardView.setCardElevation(5);
     }
 
 
@@ -66,7 +80,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView categoryName;
+        public TextView categoryName,categoryDesc;
         public ShimmerTextView arrowTextView;
         public CardView categoryCardView;
         public LinearLayout cardImageLayout;
@@ -78,6 +92,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             categoryCardView = itemView.findViewById(R.id.category_cardview);
             arrowTextView = itemView.findViewById(R.id.arrow_text);
             cardImageLayout = itemView.findViewById(R.id.cardImageLayout);
+            categoryDesc = itemView.findViewById(R.id.category_desc);
         }
     }
 }
