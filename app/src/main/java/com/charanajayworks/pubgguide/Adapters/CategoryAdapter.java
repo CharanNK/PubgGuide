@@ -1,13 +1,19 @@
 package com.charanajayworks.pubgguide.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +24,8 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.charanajayworks.pubgguide.GuidesFragment;
+import com.charanajayworks.pubgguide.LootsDetailFragment;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
 import com.charanajayworks.pubgguide.R;
 import com.romainpiel.shimmer.Shimmer;
@@ -69,6 +77,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         shimmer = new Shimmer();
         shimmer.setDuration(2500);
         shimmer.start(holder.arrowTextView);
+
+        holder.categoryCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("CategoryClick:","clicked");
+            }
+        });
 
 //        holder.categoryCardView.setCardElevation(5);
     }

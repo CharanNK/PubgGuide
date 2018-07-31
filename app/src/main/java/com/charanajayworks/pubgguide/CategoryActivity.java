@@ -5,6 +5,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.LinearLayout;
 
 import com.charanajayworks.pubgguide.Adapters.CategoryAdapter;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
@@ -37,9 +40,18 @@ public class CategoryActivity extends AppCompatActivity {
         categoryModelArrayList.add(new CategoryModel("ROYALE PASS","https://i.imgur.com/uBj6kYv.jpg","Know the Royale Pass"));
         categoryModelArrayList.add(new CategoryModel("QUESTIONS","https://i.imgur.com/5rIzA9r.jpg","Ask us your queries"));
 
-        LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        categoryRecycler.setLayoutManager(llm);
+
+        Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.slide_up);
+
+
+//        LinearLayoutManager llm = new LinearLayoutManager(getApplicationContext());
+//        llm.setOrientation(LinearLayoutManager.VERTICAL);
+//        categoryRecycler.setLayoutManager(llm);
+
+
+        categoryRecycler.setLayoutManager(new VegaLayoutManager());
+
 //        categoryRecycler.setHasFixedSize(true);
         final CategoryAdapter categoryAdapter = new CategoryAdapter(this,categoryModelArrayList);
 
