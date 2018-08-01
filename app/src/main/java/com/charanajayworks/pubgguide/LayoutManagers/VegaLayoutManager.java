@@ -1,4 +1,4 @@
-package com.charanajayworks.pubgguide;
+package com.charanajayworks.pubgguide.LayoutManagers;
 
 import android.graphics.Rect;
 import android.support.v4.util.ArrayMap;

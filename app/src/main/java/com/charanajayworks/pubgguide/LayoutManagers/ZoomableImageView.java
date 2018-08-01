@@ -1,4 +1,4 @@
-package com.charanajayworks.pubgguide;
+package com.charanajayworks.pubgguide.LayoutManagers;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;

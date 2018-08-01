@@ -1,15 +1,13 @@
 package com.charanajayworks.pubgguide.Adapters;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
 import android.graphics.PorterDuff;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -17,15 +15,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
-import com.charanajayworks.pubgguide.GuidesFragment;
-import com.charanajayworks.pubgguide.LootsDetailFragment;
+import com.charanajayworks.pubgguide.MapDisplayAcitivity;
+import com.charanajayworks.pubgguide.MapsActivity;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
 import com.charanajayworks.pubgguide.R;
 import com.romainpiel.shimmer.Shimmer;
@@ -69,7 +66,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     cardViewBackground.setColorFilter(0x5F000000, PorterDuff.Mode.SRC_ATOP);
                 }
             }
-        });;
+        });
         //holder.cardImageLayout.setBackgroundResource(categoryModel.getCategoryImage());
         holder.arrowTextView.setTypeface(typeface);
         holder.categoryDesc.setTypeface(typeface);
@@ -81,11 +78,22 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         holder.categoryCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("CategoryClick:","clicked");
+                Log.d("CategoryClick:", "clicked");
+                TextView name = view.findViewById(R.id.category_name);
+                Log.d("clickeNAme:", name.getText().toString());
+                if (name.getText().toString().equals("MAPS")) {
+                    Intent intent = new Intent(mContext, MapsActivity.class);
+                    mContext.startActivity(intent);
+                }
+                if (name.getText().toString().equals("ERANGEL")||name.getText().toString().equals("MIRAMAR")||name.getText().toString().equals("SANHOK")) {
+                    Intent intent = new Intent(mContext,MapDisplayAcitivity.class);
+                    intent.putExtra("mapName",name.getText().toString());
+                    mContext.startActivity(intent);
+                }
             }
         });
 
-//        holder.categoryCardView.setCardElevation(5);
+        holder.categoryCardView.setCardElevation(5);
     }
 
 
@@ -95,7 +103,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView categoryName,categoryDesc;
+        public TextView categoryName, categoryDesc;
         public ShimmerTextView arrowTextView;
         public CardView categoryCardView;
         public LinearLayout cardImageLayout;

@@ -1,9 +1,11 @@
-package com.charanajayworks.pubgguide;
+package com.charanajayworks.pubgguide.LayoutManagers;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.charanajayworks.pubgguide.LayoutManagers.VegaLayoutManager;
 
 /**
  * 定位到第一个子View的SnapHelper

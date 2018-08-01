@@ -79,6 +79,7 @@
                             android:layout_height="match_parent"
                             android:paddingLeft="11dp"
                             android:id="@+id/category_desc"
+                            android:textScaleX="1"
                             android:text="Know your weapons before you shoot"
                             android:textColor="@color/colorLightWhite"/>
                     </LinearLayout>
@@ -96,7 +97,7 @@
                         android:layout_marginRight="5dp"
                         android:layout_weight="0.2"
                         android:gravity="right"
-                        android:text=">>>>>>"
+                        android:text=">>>>>"
                         android:textColor="#000"
                         android:textScaleX="1.5"
                         android:textStyle="bold"
