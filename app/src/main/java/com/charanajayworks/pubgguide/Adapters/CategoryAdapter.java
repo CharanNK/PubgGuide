@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.charanajayworks.pubgguide.GeneralDataActivity;
 import com.charanajayworks.pubgguide.MapDisplayAcitivity;
 import com.charanajayworks.pubgguide.MapsActivity;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
@@ -52,8 +53,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         final CategoryModel categoryModel = categoryList.get(position);
-//        String categoryName = categoryModel.getCategoryName();
-//        int categoryImage = categoryModel.getCategoryImage();
 
         holder.categoryName.setText(categoryModel.getCategoryName());
         holder.categoryName.setTypeface(typeface);
@@ -88,6 +87,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 if (name.getText().toString().equals("ERANGEL")||name.getText().toString().equals("MIRAMAR")||name.getText().toString().equals("SANHOK")) {
                     Intent intent = new Intent(mContext,MapDisplayAcitivity.class);
                     intent.putExtra("mapName",name.getText().toString());
+                    mContext.startActivity(intent);
+                }
+                if(name.getText().toString().equals("COMBINATIONS")){
+                    Intent intent = new Intent(mContext, GeneralDataActivity.class);
                     mContext.startActivity(intent);
                 }
             }

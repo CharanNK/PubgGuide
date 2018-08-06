@@ -29,12 +29,10 @@ public class MapsActivity extends AppCompatActivity {
 
         mapsArrayList = new ArrayList<>();
 
-        mapsArrayList.add(new CategoryModel("ERANGEL","https://i.imgur.com/2WmPeAg.jpg","Bushes and trees make great hiding places for ambushing"));
+        mapsArrayList.add(new CategoryModel("ERANGEL","https://i.imgur.com/2WmPeAg.jpg","Forest map - great hiding places for ambushing"));
         mapsArrayList.add(new CategoryModel("MIRAMAR","https://i.imgur.com/CvVTJDn.jpg","Great for urban assaults and sniping"));
         mapsArrayList.add(new CategoryModel("SANHOK","https://i.imgur.com/N2tNWbv.jpg","Great for urban assaults and sniping"));
 
-
-        mapsRecycler.setLayoutManager(new VegaLayoutManager());
 
         final CategoryAdapter mapsAdapter = new CategoryAdapter(this,mapsArrayList);
 

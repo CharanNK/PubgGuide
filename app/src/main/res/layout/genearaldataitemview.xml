@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="@dimen/padding10"
+    android:layout_marginRight="@dimen/padding10"
+    android:layout_marginTop="@dimen/padding10"
+    android:orientation="vertical">
+
+    <com.charanajayworks.pubgguide.fonts.roboto_font
+        android:id="@+id/generalDataTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Best All-Rounder Loadout"
+        android:textColor="@color/colorBlack"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrey" />
+
+    <ImageView
+        android:id="@+id/generalImageView"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/pubweaponvector" />
+
+    <LinearLayout
+        android:id="@+id/lootsattributelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/quality_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/quality_icon" />
+
+            <TextView
+                android:id="@+id/loot_quality_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="5dp"
+                android:text="Loot Quality : "
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey" />
+
+        <LinearLayout
+            android:id="@+id/quantity_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/quantity_icon" />
+
+            <TextView
+                android:id="@+id/loot_quantity_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Loot Quantity : "
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey" />
+
+        <LinearLayout
+            android:id="@+id/risk_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/risk_icon" />
+
+            <TextView
+                android:id="@+id/loot_risk_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Risk : "
+                android:textColor="@color/colorBlack" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorGrey" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/generalDataDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:justificationMode="inter_word"
+        android:lineSpacingMultiplier="1.2"
+        android:text="This build focuses on dealing damage no matter what sort of situation you might find yourself in. It’ll be versatile enough to take on enemies at all ranges, but it’ll be most potent in mid range fights.\n1st Weapon: M416\n2nd Weapon: AKM\nMelee: Pan\nAttachments: 2x, 4x, Extended Quickdraw, Compensator.\nConsumables: First Aid Kits, Painkillers, Bandages.\nA fully kitted out M416 is easily the most reliable weapon in the game, with decent damage at all ranges too. The AKM’s a decent secondary as it does immense damage at short range, making it a strong alternative to an SMG."
+        android:textColor="@color/colorBlack" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorGrey" />
+</LinearLayout>
