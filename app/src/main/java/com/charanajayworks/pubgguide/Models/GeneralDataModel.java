@@ -31,6 +31,15 @@ public class GeneralDataModel {
     private String lootQuality;
     private String lootQuantity;
 
+    public GeneralDataModel(String dataTitle, String dataDescription, String imageLink,  String lootQuality, String lootQuantity, String lootRisk) {
+        this.dataTitle = dataTitle;
+        this.imageLink = imageLink;
+        this.dataDescription = dataDescription;
+        this.lootQuality = lootQuality;
+        this.lootQuantity = lootQuantity;
+        this.lootRisk = lootRisk;
+    }
+
     public String getLootQuality() {
         return lootQuality;
     }
@@ -57,7 +66,7 @@ public class GeneralDataModel {
 
     private String lootRisk;
 
-    public GeneralDataModel(String dataTitle, String dataDescription, String imageLink,String lootQuality,String lootQuantity,String lootRisk) {
+    public GeneralDataModel(String dataTitle, String dataDescription, String imageLink) {
         this.dataTitle = dataTitle;
         this.imageLink = imageLink;
         this.dataDescription = dataDescription;

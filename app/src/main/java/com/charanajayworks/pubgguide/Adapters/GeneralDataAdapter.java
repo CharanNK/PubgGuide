@@ -1,6 +1,7 @@
 package com.charanajayworks.pubgguide.Adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -46,8 +47,15 @@ public class GeneralDataAdapter extends RecyclerView.Adapter<GeneralDataAdapter.
             holder.lootsAttributeLayout.setVisibility(View.GONE);
         }else {
             holder.lootQuality.setText(dataModel.getLootQuality());
+            holder.lootQuality.setTextColor(Color.parseColor(determineTextColor(dataModel.getLootQuality())));
+            
+            
             holder.lootQuantity.setText(dataModel.getLootQuantity());
+            holder.lootQuantity.setTextColor(Color.parseColor(determineTextColor(dataModel.getLootQuantity())));
+
+
             holder.lootRisk.setText(dataModel.getLootRisk());
+            holder.lootRisk.setTextColor(Color.parseColor(determineTextColor(dataModel.getLootRisk())));
         }
 
         Glide.with(mContext).load(dataModel.getImageLink()).into(holder.generalImageView);
@@ -55,6 +63,19 @@ public class GeneralDataAdapter extends RecyclerView.Adapter<GeneralDataAdapter.
         String dataDescription = dataModel.getDataDescription();
         dataDescription = dataDescription.replaceAll("\\*\\*","\\\n");
         holder.generalDataDesc.setText(dataDescription);
+    }
+
+    private String determineTextColor(String lootQuality) {
+        String redColor = "#FF0000";
+        String orangeColor = "#ff8c00";
+        String greenColor = "#008000";
+
+        switch (lootQuality){
+            case "Very High" : return redColor;
+            case "High" : return greenColor;
+            case "Medium" : return orangeColor;
+            default: return "#000000";
+        }
     }
 
     @Override

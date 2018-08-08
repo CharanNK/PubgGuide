@@ -28,6 +28,7 @@ import com.charanajayworks.pubgguide.MapDisplayAcitivity;
 import com.charanajayworks.pubgguide.MapsActivity;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
 import com.charanajayworks.pubgguide.R;
+import com.charanajayworks.pubgguide.TipsActivity;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
@@ -98,6 +99,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 if (name.getText().toString().equals("ERANGEL")||name.getText().toString().equals("MIRAMAR")||name.getText().toString().equals("SANHOK")) {
                     Intent intent = new Intent(mContext,MapDisplayAcitivity.class);
                     intent.putExtra("mapName",name.getText().toString());
+                    mContext.startActivity(intent);
+                }
+                if(name.getText().toString().equals("TIPS")){
+                    Intent intent = new Intent(mContext, TipsActivity.class);
                     mContext.startActivity(intent);
                 }
                 if(name.getText().toString().equals("COMBINATIONS")){

@@ -47,13 +47,21 @@
                 android:src="@drawable/quality_icon" />
 
             <TextView
-                android:id="@+id/loot_quality_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="5dp"
                 android:text="Loot Quality : "
                 android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/loot_quality_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:padding="5dp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <View
@@ -73,12 +81,20 @@
                 android:src="@drawable/quantity_icon" />
 
             <TextView
-                android:id="@+id/loot_quantity_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="Loot Quantity : "
                 android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/loot_quantity_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:padding="5dp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <View
@@ -98,12 +114,20 @@
                 android:src="@drawable/risk_icon" />
 
             <TextView
-                android:id="@+id/loot_risk_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:text="Risk : "
                 android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/loot_risk_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:padding="5dp"
+                android:textColor="@color/colorBlack"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <View
