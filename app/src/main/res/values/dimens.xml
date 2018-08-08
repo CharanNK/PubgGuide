@@ -10,4 +10,6 @@
     <dimen name="padding40">40dp</dimen>
     <dimen name="leftrightmargin">5dp</dimen>
     <dimen name="topbottommargin">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
 </resources>

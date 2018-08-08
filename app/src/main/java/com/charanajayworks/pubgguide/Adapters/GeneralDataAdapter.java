@@ -65,7 +65,7 @@ public class GeneralDataAdapter extends RecyclerView.Adapter<GeneralDataAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView generalDataTitle,generalDataDesc,lootQuality,lootQuantity,lootRisk;
         ImageView generalImageView;
-        LinearLayout qualityLayout, quantityLayout, riskLayout,lootsAttributeLayout;
+        LinearLayout lootsAttributeLayout;
         public ViewHolder(View itemView) {
             super(itemView);
             generalDataTitle = itemView.findViewById(R.id.generalDataTitle);

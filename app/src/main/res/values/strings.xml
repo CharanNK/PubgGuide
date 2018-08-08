@@ -7,4 +7,7 @@
     <string name="title_quality">QUALITY</string>
     <string name="title_quantity">QUANTITY</string>
     <string name="title_risk">RISK</string>
+    <string name="title_activity_loots">LootsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

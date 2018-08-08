@@ -2,37 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.charanajayworks.pubgguide">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/pubgguide_icon"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:supportsRtl="true"
-        android:hardwareAccelerated="true"
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".SplashScreenActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".CategoryActivity"></activity>
-        <activity android:name=".MapsActivity"></activity>
-        <activity android:name=".MapDisplayAcitivity"></activity>
-        <activity android:name=".GeneralDataActivity"></activity>
+        <activity android:name=".CategoryActivity" />
+        <activity android:name=".MapsActivity" />
+        <activity android:name=".MapDisplayAcitivity" />
+        <activity android:name=".GeneralDataActivity" />
+        <activity android:name=".GridsActivity"/>
+        <activity android:name=".LootsActivity"/>
 
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
+
     </application>
+
 </manifest>

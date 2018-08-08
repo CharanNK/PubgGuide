@@ -36,7 +36,6 @@
         android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/quality_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -63,7 +62,6 @@
             android:background="@color/colorGrey" />
 
         <LinearLayout
-            android:id="@+id/quantity_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -89,7 +87,6 @@
             android:background="@color/colorGrey" />
 
         <LinearLayout
-            android:id="@+id/risk_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
