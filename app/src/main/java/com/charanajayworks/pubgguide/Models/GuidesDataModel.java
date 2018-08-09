@@ -1,8 +1,8 @@
-package com.charanajayworks.pubgguide.Adapters;
+package com.charanajayworks.pubgguide.Models;
 
-public class guides_adapter {
+public class GuidesDataModel {
 
-    public guides_adapter(String guide_title, String guide_desc) {
+    public GuidesDataModel(String guide_title, String guide_desc) {
         this.guide_title = guide_title;
         this.guide_desc = guide_desc;
     }

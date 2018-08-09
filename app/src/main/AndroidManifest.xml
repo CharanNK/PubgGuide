@@ -31,6 +31,8 @@
         <activity android:name=".GridsActivity"/>
         <activity android:name=".LootsActivity"/>
         <activity android:name=".TipsActivity"/>
+        <activity android:name=".GuidesActivity"/>
+
 
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>

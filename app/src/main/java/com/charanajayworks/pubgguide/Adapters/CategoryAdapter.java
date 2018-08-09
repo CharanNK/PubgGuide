@@ -23,6 +23,7 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.charanajayworks.pubgguide.GeneralDataActivity;
 import com.charanajayworks.pubgguide.GridsActivity;
+import com.charanajayworks.pubgguide.GuidesActivity;
 import com.charanajayworks.pubgguide.LootsActivity;
 import com.charanajayworks.pubgguide.MapDisplayAcitivity;
 import com.charanajayworks.pubgguide.MapsActivity;
@@ -94,6 +95,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 }
                 if(name.getText().toString().equals("LOOTS")){
                     Intent intent = new Intent(mContext, LootsActivity.class);
+                    mContext.startActivity(intent);
+                }
+                if(name.getText().toString().equals("GUIDES")){
+                    Intent intent = new Intent(mContext, GuidesActivity.class);
                     mContext.startActivity(intent);
                 }
                 if (name.getText().toString().equals("ERANGEL")||name.getText().toString().equals("MIRAMAR")||name.getText().toString().equals("SANHOK")) {

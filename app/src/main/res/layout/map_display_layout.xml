@@ -23,7 +23,6 @@
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="4.5"
-        android:src="@drawable/pubg_back1"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter" />
 
