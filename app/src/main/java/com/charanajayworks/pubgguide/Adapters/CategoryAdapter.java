@@ -28,6 +28,7 @@ import com.charanajayworks.pubgguide.LootsActivity;
 import com.charanajayworks.pubgguide.MapDisplayAcitivity;
 import com.charanajayworks.pubgguide.MapsActivity;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
+import com.charanajayworks.pubgguide.QuestionsActivity;
 import com.charanajayworks.pubgguide.R;
 import com.charanajayworks.pubgguide.TipsActivity;
 import com.romainpiel.shimmer.Shimmer;
@@ -112,6 +113,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 }
                 if(name.getText().toString().equals("COMBINATIONS")){
                     Intent intent = new Intent(mContext, GeneralDataActivity.class);
+                    mContext.startActivity(intent);
+                }
+                if(name.getText().toString().equals("QUESTIONS")){
+                    Intent intent = new Intent(mContext, QuestionsActivity.class);
                     mContext.startActivity(intent);
                 }
             }

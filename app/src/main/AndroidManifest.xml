@@ -32,6 +32,7 @@
         <activity android:name=".LootsActivity"/>
         <activity android:name=".TipsActivity"/>
         <activity android:name=".GuidesActivity"/>
+        <activity android:name=".QuestionsActivity"/>
 
 
         <service android:name=".MyFirebaseInstanceIDService">
