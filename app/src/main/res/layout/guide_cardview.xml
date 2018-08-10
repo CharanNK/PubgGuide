@@ -21,13 +21,13 @@
                 android:id="@+id/guide_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="7dp"
                 android:layout_marginTop="5dp"
                 android:autoSizeMaxTextSize="24sp"
                 android:autoSizeMinTextSize="15sp"
                 android:autoSizeTextType="uniform"
                 android:text="Best clothes for PUBG characters"
-                android:textColor="#8b4513"
+                android:textColor="#0E81D1"
                 android:textStyle="bold" />
 
             <android.support.v4.widget.Space

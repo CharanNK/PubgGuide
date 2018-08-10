@@ -10,11 +10,16 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Window;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.Manifest;
 
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -42,50 +47,33 @@ public class SplashScreenActivity extends AppCompatActivity {
     Context mContext;
     SharedPreferences sharedPreferences;
     TextView loadingText;
+    ShimmerFrameLayout shimmerFrameLayout;
+    Thread splashTread;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        setContentView(R.layout.splash_screen);
+        setContentView(R.layout.splash_screen_layout);
 
         mContext = getApplicationContext();
-        loadingText = findViewById(R.id.progressbar);
 
         sharedPreferences = getSharedPreferences("PUBG_GUIDE", MODE_PRIVATE);
 
-        Thread loading = new Thread() {
-            public void run() {
-                try {
+        shimmerFrameLayout = findViewById(R.id.shimmer_view_container);
 
-                    Dexter.withActivity(SplashScreenActivity.this).withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET)
-                            .withListener(new MultiplePermissionsListener() {
-                                @Override
-                                public void onPermissionsChecked(MultiplePermissionsReport report) {
-                                    if (report.areAllPermissionsGranted()) {
-                                        new DownloadFile().execute("https://i.imgur.com/0gKaCq7.png");
-                                    } else {
-                                    }
-                                }
+//        Thread loading = new Thread() {
+//            public void run() {
+//                Intent main = new Intent(getApplicationContext(), CategoryActivity.class);
+//                startActivity(main);
+//                finish();
+//            }
+//        };
 
-                                @Override
-                                public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                                    token.continuePermissionRequest();
-                                }
-                            }).check();
-
-                } catch (Exception e) {
-                    //e.printStackTrace();
-                } finally {
-                    Intent main = new Intent(getApplicationContext(), CategoryActivity.class);
-                    startActivity(main);
-                    finish();
-                }
-            }
-        };
-
-        loading.start();
+//        loading.start();
+        StartAnimations();
     }
 
     @Override
@@ -130,10 +118,9 @@ public class SplashScreenActivity extends AppCompatActivity {
                 if (!folder.exists()) {
                     folder.mkdir();//If there is no folder it will be created.
                     Log.d("download", "created folder");
-                }
-                else {
-                    File file = new File(Environment.getExternalStorageDirectory() +"/PUBGuide/sanhok.jpg");
-                    if(file.exists())
+                } else {
+                    File file = new File(Environment.getExternalStorageDirectory() + "/PUBGuide/sanhok.jpg");
+                    if (file.exists())
                         return null;
                 }
                 InputStream input = new BufferedInputStream(url.openStream());
@@ -157,5 +144,68 @@ public class SplashScreenActivity extends AppCompatActivity {
         protected void onPostExecute(Long result) {
 
         }
+    }
+
+
+    private void StartAnimations() {
+        Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
+        anim.reset();
+        FrameLayout l= findViewById(R.id.lin_lay);
+        l.clearAnimation();
+        l.startAnimation(anim);
+
+        anim = AnimationUtils.loadAnimation(this, R.anim.zoom_in);
+        anim.reset();
+        ImageView iv = findViewById(R.id.splash);
+        iv.clearAnimation();
+        iv.startAnimation(anim);
+        anim.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                shimmerFrameLayout.startShimmer();
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+
+//        Animation anim1 = AnimationUtils.loadAnimation(this, R.anim.trans_left_right);
+//        anim.reset();
+//        ImageView iv1 = (ImageView) findViewById(R.id.splash1);
+//        iv1.clearAnimation();
+//        iv1.startAnimation(anim1);
+
+        splashTread = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    int waited = 0;
+                    // Splash screen pause time
+                    while (waited < 3200) {
+                        sleep(100);
+                        waited += 100;
+                    }
+                    Intent intent = new Intent(SplashScreenActivity.this,
+                            CategoryActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    SplashScreenActivity.this.finish();
+                } catch (InterruptedException e) {
+                    // do nothing
+                } finally {
+                    SplashScreenActivity.this.finish();
+                }
+
+            }
+        };
+        splashTread.start();
+
     }
 }

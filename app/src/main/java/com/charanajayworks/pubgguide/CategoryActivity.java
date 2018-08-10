@@ -1,8 +1,10 @@
 package com.charanajayworks.pubgguide;
 
+import android.Manifest;
 import android.content.ContentResolver;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -25,12 +27,18 @@ import android.widget.Toast;
 import com.charanajayworks.pubgguide.Adapters.CategoryAdapter;
 import com.charanajayworks.pubgguide.LayoutManagers.VegaLayoutManager;
 import com.charanajayworks.pubgguide.Models.CategoryModel;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.MultiplePermissionsReport;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CategoryActivity extends AppCompatActivity {
     RecyclerView categoryRecycler;
@@ -41,6 +49,8 @@ public class CategoryActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.share_app :
                 try{
+                    String[] shareTexts = {"Want to have a ChickenDinner?","Do you know where to find the best loots in PUBG?","Best Weapon Loadouts in PUBG"};
+                    String shareMessage = shareTexts[(int) (Math.random()*(shareTexts.length-0))];
                     Uri imageUri = null;
                     try {
                         imageUri = Uri.parse(MediaStore.Images.Media.insertImage(this.getContentResolver(),
@@ -50,8 +60,8 @@ public class CategoryActivity extends AppCompatActivity {
 
                     Intent intent = new Intent(android.content.Intent.ACTION_SEND);
                     intent.setType("image/jpg");
-                    //intent.putExtra(Intent.EXTRA_SUBJECT,"PUBG Guide");
-                    String shareMessage = "\nWant to have a Chicken Dinner?\n\nInstall this cool app to know the best practices to win a game in PUBG\n\n";
+                    intent.putExtra(Intent.EXTRA_SUBJECT,"PUBG Guide");
+                    shareMessage += "\n\nInstall this cool app to know the best practices,ultimate loot locations, hidden tricks, weapon stats and weapon combinations to win a game in PUBG\n\n";
                     shareMessage+="https://play.google.com/store/apps/details?id="+getPackageName();
                     shareMessage+="\n\nWinner Winner Chicken Dinner";
                     intent.putExtra(Intent.EXTRA_TEXT,shareMessage);
@@ -112,6 +122,8 @@ public class CategoryActivity extends AppCompatActivity {
 
         categoryRecycler = findViewById(R.id.category_recycler);
 
+        requestPermissions();
+
         categoryModelArrayList = new ArrayList<>();
 
         categoryModelArrayList.add(new CategoryModel("WEAPONS","https://i.imgur.com/x8lKVDO.jpg","Know your weapons before you shoot"));
@@ -132,5 +144,24 @@ public class CategoryActivity extends AppCompatActivity {
         final CategoryAdapter categoryAdapter = new CategoryAdapter(this,categoryModelArrayList);
 
         categoryRecycler.setAdapter(categoryAdapter);
+    }
+
+    private void requestPermissions() {
+        Dexter.withActivity(this).withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.INTERNET)
+                .withListener(new MultiplePermissionsListener() {
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+                            return;
+                        } else {
+                            Toast.makeText(getApplicationContext(), "Permissions are not granted!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).check();
     }
 }

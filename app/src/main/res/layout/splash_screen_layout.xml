@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lin_lay"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#242729"
+    android:gravity="center_horizontal|center_vertical">
+
+
+    <ImageView
+        android:id="@+id/splash"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:background="@drawable/pubgguide_icon"
+        android:contentDescription="Charan" />
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/shimmer_view_container"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        app:shimmer_repeat_count="0"
+        app:shimmer_auto_start="false"
+        app:shimmer_duration="6000"
+        android:layout_marginBottom="80dp"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/made_for"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="MADE FOR"
+                android:textColor="#FFF"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/made_for"
+                android:layout_centerHorizontal="true"
+                android:text="PUBG LOVERS!"
+                android:textColor="#ffff"
+                android:textSize="30sp" />
+        </RelativeLayout>
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</FrameLayout>

@@ -85,40 +85,53 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 Log.d("CategoryClick:", "clicked");
                 TextView name = view.findViewById(R.id.category_name);
                 Log.d("clickeNAme:", name.getText().toString());
-                if(name.getText().toString().equals("WEAPONS")){
-                    Intent intent = new Intent(mContext, GridsActivity.class);
-                    intent.putExtra("gridtype","basic");
-                    mContext.startActivity(intent);
+                Intent intent = null;
+                switch (name.getText().toString()){
+                    case "WEAPONS" :
+                        intent = new Intent(mContext, GridsActivity.class);
+                        intent.putExtra("gridtype","basic");
+                        break;
+                    case "MAPS":
+                        intent = new Intent(mContext, MapsActivity.class);
+                        break;
+                    case "COMBINATIONS":
+                        intent = new Intent(mContext, GeneralDataActivity.class);
+                        break;
+                    case "PUBG 4 NOOBS":
+                        intent = new Intent(mContext, GeneralDataActivity.class);
+                        break;
+                    case "MODES":
+                        intent = new Intent(mContext, GeneralDataActivity.class);
+                        break;
+                    case "LOOTS":
+                        intent = new Intent(mContext, LootsActivity.class);
+                        break;
+                    case "CONTROLS":
+                        intent = new Intent(mContext, LootsActivity.class);
+                        break;
+                    case "GUIDES":
+                        intent = new Intent(mContext, GuidesActivity.class);
+                        break;
+                    case "ERANGEL":
+                    case "MIRAMAR":
+                    case "SANHOK":
+                        intent = new Intent(mContext,MapDisplayAcitivity.class);
+                        intent.putExtra("mapName",name.getText().toString());
+                        break;
+                    case "TIPS":
+                        intent = new Intent(mContext, TipsActivity.class);
+                        break;
+                    case "VIDEOS":
+                        intent = new Intent(mContext, GeneralDataActivity.class);
+                        break;
+                    case "ROYALE PASS":
+                        intent = new Intent(mContext, GeneralDataActivity.class);
+                        break;
+                    case "QUESTIONS" :
+                        intent = new Intent(mContext, QuestionsActivity.class);
+                        break;
                 }
-                if (name.getText().toString().equals("MAPS")) {
-                    Intent intent = new Intent(mContext, MapsActivity.class);
-                    mContext.startActivity(intent);
-                }
-                if(name.getText().toString().equals("LOOTS")){
-                    Intent intent = new Intent(mContext, LootsActivity.class);
-                    mContext.startActivity(intent);
-                }
-                if(name.getText().toString().equals("GUIDES")){
-                    Intent intent = new Intent(mContext, GuidesActivity.class);
-                    mContext.startActivity(intent);
-                }
-                if (name.getText().toString().equals("ERANGEL")||name.getText().toString().equals("MIRAMAR")||name.getText().toString().equals("SANHOK")) {
-                    Intent intent = new Intent(mContext,MapDisplayAcitivity.class);
-                    intent.putExtra("mapName",name.getText().toString());
-                    mContext.startActivity(intent);
-                }
-                if(name.getText().toString().equals("TIPS")){
-                    Intent intent = new Intent(mContext, TipsActivity.class);
-                    mContext.startActivity(intent);
-                }
-                if(name.getText().toString().equals("COMBINATIONS")){
-                    Intent intent = new Intent(mContext, GeneralDataActivity.class);
-                    mContext.startActivity(intent);
-                }
-                if(name.getText().toString().equals("QUESTIONS")){
-                    Intent intent = new Intent(mContext, QuestionsActivity.class);
-                    mContext.startActivity(intent);
-                }
+                mContext.startActivity(intent);
             }
         });
 
