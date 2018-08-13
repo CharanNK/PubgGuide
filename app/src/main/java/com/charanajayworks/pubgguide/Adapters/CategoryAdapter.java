@@ -31,6 +31,7 @@ import com.charanajayworks.pubgguide.Models.CategoryModel;
 import com.charanajayworks.pubgguide.QuestionsActivity;
 import com.charanajayworks.pubgguide.R;
 import com.charanajayworks.pubgguide.TipsActivity;
+import com.charanajayworks.pubgguide.VideoActivity;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 
@@ -122,7 +123,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                         intent = new Intent(mContext, TipsActivity.class);
                         break;
                     case "VIDEOS":
-                        intent = new Intent(mContext, GeneralDataActivity.class);
+                        intent = new Intent(mContext, VideoActivity.class);
                         break;
                     case "ROYALE PASS":
                         intent = new Intent(mContext, GeneralDataActivity.class);

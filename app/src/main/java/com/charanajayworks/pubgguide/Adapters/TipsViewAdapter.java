@@ -1,17 +1,15 @@
-package com.charanajayworks.pubgguide;
+package com.charanajayworks.pubgguide.Adapters;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.charanajayworks.pubgguide.R;
 import com.romainpiel.shimmer.Shimmer;
-import com.romainpiel.shimmer.ShimmerTextView;
 
 import java.util.ArrayList;
 

@@ -1,14 +1,17 @@
 package com.charanajayworks.pubgguide.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.charanajayworks.pubgguide.GuidesDetailActivity;
 import com.charanajayworks.pubgguide.Models.GuidesDataModel;
 import com.charanajayworks.pubgguide.R;
 
@@ -31,11 +34,22 @@ public class GuidesAdapter extends RecyclerView.Adapter<GuidesAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         final GuidesDataModel guidesDataModel = guidesList.get(position);
 
         holder.guideTitle.setText(guidesDataModel.getGuide_title());
         holder.guideDesc.setText(guidesDataModel.getGuide_desc());
+
+        holder.guideCardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.d("GUIDESADAPTER","onCick called");
+                Intent intent = new Intent(mContext,GuidesDetailActivity.class);
+                intent.putExtra("guideTitle",guidesDataModel.getGuide_title());
+                intent.putExtra("guideDesc",guidesDataModel.getGuide_desc());
+                mContext.startActivity(intent);
+            }
+        });
     }
 
     @Override

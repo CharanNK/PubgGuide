@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_margin="@dimen/padding10"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="#0E81D1"
+        android:textSize="23sp"
+        android:id="@+id/guide_det_title"
+        android:text="This is guide heading.This is guide heading"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/guide_det_title"
+        android:id="@+id/guide_det_desc"
+        android:paddingTop="@dimen/padding20"
+        android:textColor="@color/colorBlack"
+        android:justificationMode="inter_word"
+        android:text="This build focuses on dealing damage no matter what sort of situation you might find yourself in. It’ll be versatile enough to take on enemies at all ranges, but it’ll be most potent in mid range fights.\n1st Weapon: M416\n2nd Weapon: AKM\nMelee: Pan\nAttachments: 2x, 4x, Extended Quickdraw, Compensator.\nConsumables: First Aid Kits, Painkillers, Bandages.\nA fully kitted out M416 is easily the most reliable weapon in the game, with decent damage at all ranges too. The AKM’s a decent secondary as it does immense damage at short range, making it a strong alternative to an SMG."
+        android:lineSpacingMultiplier="1.2"/>
+
+</RelativeLayout>

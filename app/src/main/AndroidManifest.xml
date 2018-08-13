@@ -33,7 +33,8 @@
         <activity android:name=".TipsActivity"/>
         <activity android:name=".GuidesActivity"/>
         <activity android:name=".QuestionsActivity"/>
-
+        <activity android:name=".VideoActivity"/>
+        <activity android:name=".GuidesDetailActivity"/>
 
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>

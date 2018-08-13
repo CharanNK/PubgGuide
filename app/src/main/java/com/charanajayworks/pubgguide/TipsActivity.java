@@ -9,21 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 
-import com.charanajayworks.pubgguide.LayoutManagers.VegaLayoutManager;
+import com.charanajayworks.pubgguide.Adapters.TipsViewAdapter;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static android.content.Context.MODE_PRIVATE;
 
 public class TipsActivity extends AppCompatActivity {
     DBHelper databaseHelper;
