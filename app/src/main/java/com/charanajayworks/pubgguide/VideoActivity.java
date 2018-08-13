@@ -24,11 +24,11 @@ public class VideoActivity extends AppCompatActivity {
 
         videosList = new ArrayList<>();
 
-        videosList.add("https://www.youtube.com/watch?v=0E2GiXO-5Wk");
-        videosList.add("https://www.youtube.com/watch?v=fxQj-X_Lbs4");
-        videosList.add("https://www.youtube.com/watch?v=xrpDF_W-Hrk");
-        videosList.add("https://www.youtube.com/watch?v=f1BtkDe4TDc");
-        videosList.add("https://www.youtube.com/watch?v=sctOYN2pMs4");
+        videosList.add("https://www.youtube.com/watch?v=WvMy8tu2NiE");
+        videosList.add("https://www.youtube.com/watch?v=_hNgFYLum6M");
+//        videosList.add("https://www.youtube.com/channel/UCEIdmUwbBQKaFNJ76JThDvA");
+        videosList.add("https://www.youtube.com/watch?v=Dk3xcMzVkgw");
+        videosList.add("https://www.youtube.com/watch?v=RUw3nooH5VE");
         videosList.add("https://www.youtube.com/watch?v=1GE1-qcp6Ic");
         videosList.add("https://www.youtube.com/watch?v=BuEh5011rmE");
 
