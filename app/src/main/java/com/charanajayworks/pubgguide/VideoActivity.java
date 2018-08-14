@@ -8,12 +8,13 @@ import android.support.v7.widget.RecyclerView;
 
 import com.charanajayworks.pubgguide.Adapters.YoutubeVideosAdapter;
 import com.charanajayworks.pubgguide.LayoutManagers.VegaLayoutManager;
+import com.charanajayworks.pubgguide.Models.VideosModel;
 
 import java.util.ArrayList;
 
 public class VideoActivity extends AppCompatActivity {
     RecyclerView videoListView;
-    ArrayList<String> videosList;
+    ArrayList<VideosModel> videosList;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -24,13 +25,12 @@ public class VideoActivity extends AppCompatActivity {
 
         videosList = new ArrayList<>();
 
-        videosList.add("https://www.youtube.com/watch?v=WvMy8tu2NiE");
-        videosList.add("https://www.youtube.com/watch?v=_hNgFYLum6M");
-//        videosList.add("https://www.youtube.com/channel/UCEIdmUwbBQKaFNJ76JThDvA");
-        videosList.add("https://www.youtube.com/watch?v=Dk3xcMzVkgw");
-        videosList.add("https://www.youtube.com/watch?v=RUw3nooH5VE");
-        videosList.add("https://www.youtube.com/watch?v=1GE1-qcp6Ic");
-        videosList.add("https://www.youtube.com/watch?v=BuEh5011rmE");
+        videosList.add(new VideosModel("https://www.youtube.com/watch?v=WvMy8tu2NiE","Updates for pubg"));
+        videosList.add(new VideosModel("https://www.youtube.com/watch?v=_hNgFYLum6M","this is video2"));
+        videosList.add(new VideosModel("https://www.youtube.com/watch?v=Dk3xcMzVkgw","This is video3"));
+        videosList.add(new VideosModel("https://www.youtube.com/watch?v=RUw3nooH5VE","This is video4"));
+        videosList.add(new VideosModel("https://www.youtube.com/watch?v=1GE1-qcp6Ic","This is video5"));
+        videosList.add(new VideosModel("https://www.youtube.com/watch?v=BuEh5011rmE","This is vidoe6"));
 
         YoutubeVideosAdapter youtubeVideosAdapter = new YoutubeVideosAdapter(this,videosList);
 

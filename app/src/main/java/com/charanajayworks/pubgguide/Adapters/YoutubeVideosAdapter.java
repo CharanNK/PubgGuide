@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.charanajayworks.pubgguide.Models.VideosModel;
 import com.charanajayworks.pubgguide.R;
 
 import org.apache.commons.io.IOUtils;
@@ -27,10 +28,10 @@ import java.util.ArrayList;
 
 public class YoutubeVideosAdapter extends RecyclerView.Adapter<YoutubeVideosAdapter.ViewHolder> {
     private Context mContext;
-    private ArrayList<String> videoLinks;
+    private ArrayList<VideosModel> videoLinks;
     private String TAG = "YoutubeVideos";
 
-    public YoutubeVideosAdapter(Context mContext, ArrayList<String> videoLinks) {
+    public YoutubeVideosAdapter(Context mContext, ArrayList<VideosModel> videoLinks) {
         this.mContext = mContext;
         this.videoLinks = videoLinks;
     }
@@ -38,23 +39,24 @@ public class YoutubeVideosAdapter extends RecyclerView.Adapter<YoutubeVideosAdap
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vidoeView = LayoutInflater.from(parent.getContext()).inflate(R.layout.youtube_video_activity,parent,false);
+        View vidoeView = LayoutInflater.from(parent.getContext()).inflate(R.layout.youtube_video_activity, parent, false);
         return new ViewHolder(vidoeView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         try {
-            String imgUrl = getImageUrl(videoLinks.get(position));
+            final VideosModel videosModel = videoLinks.get(position);
+            final String imgUrl = getImageUrl(videosModel.getYoutubeVideoURL());
             Glide.with(mContext).load(imgUrl).into(holder.webvideo_thumbnail);
-//            String videoText = getTitleQuietly(videoLinks.get(position));
-//            Log.d("VIDEOACTIVITY",videoText);
-//            holder.webvideo_title.setText(videoText);
+
+            holder.webvideo_title.setText(videosModel.getVideoText());
+
             holder.webvideo_layout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Log.d(TAG, "onClick called");
-                    mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videoLinks.get(position))));
+                    mContext.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(videosModel.getYoutubeVideoURL())));
                 }
             });
         } catch (Exception e) {
@@ -64,7 +66,7 @@ public class YoutubeVideosAdapter extends RecyclerView.Adapter<YoutubeVideosAdap
 
     private String getImageUrl(String videoUrl) throws MalformedURLException {
         String videoId = extractYoutubeId(videoUrl);
-        String imgUrl = "http://img.youtube.com/vi/"+videoId+"/0.jpg";
+        String imgUrl = "http://img.youtube.com/vi/" + videoId + "/0.jpg";
         return imgUrl;
     }
 
@@ -81,22 +83,6 @@ public class YoutubeVideosAdapter extends RecyclerView.Adapter<YoutubeVideosAdap
         return id;
     }
 
-    public static String getTitleQuietly(String youtubeUrl) {
-        URL embededURL;
-        try {
-            if (youtubeUrl != null) {
-                embededURL = new URL("http://www.youtube.com/oembed?url=" +
-                        youtubeUrl + "&format=json"
-                );
-
-                return new JSONObject(IOUtils.toString(embededURL)).getString("title");
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 
     @Override
     public int getItemCount() {
@@ -107,6 +93,7 @@ public class YoutubeVideosAdapter extends RecyclerView.Adapter<YoutubeVideosAdap
         ImageView webvideo_thumbnail;
         TextView webvideo_title;
         LinearLayout webvideo_layout;
+
         public ViewHolder(View itemView) {
             super(itemView);
             webvideo_thumbnail = itemView.findViewById(R.id.webvideo_thumbnail);

@@ -3,8 +3,8 @@
     android:id="@+id/webvideo_layout"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:clickable="true"
+    android:orientation="vertical"
     android:paddingTop="5dp">
 
     <RelativeLayout
@@ -33,11 +33,17 @@
             android:layout_centerInParent="true"
             android:src="@drawable/ic_play_arrow" />
 
-        <TextView
-            android:id="@+id/webvideo_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:lines="2" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/webvideo_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/padding10"
+        android:layout_below="@id/webvideo_thumbnail"
+        android:lines="2"
+        android:gravity="center_vertical"
+        android:text="Updates for PUBG 9.0"
+        android:textColor="@color/colorBlack" />
 
 </LinearLayout>
