@@ -35,6 +35,9 @@
         <activity android:name=".QuestionsActivity"/>
         <activity android:name=".VideoActivity"/>
         <activity android:name=".GuidesDetailActivity"/>
+        <activity android:name=".WeaponsActivity"/>
+        <activity android:name=".ThrowablesActivity"/>
+        <activity android:name=".DetailsActivity"/>
 
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>

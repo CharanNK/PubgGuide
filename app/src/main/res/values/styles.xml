@@ -17,4 +17,66 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="TemperatureTextView">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/temperature_text</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="PlaceTextView">
+        <item name="android:textSize">24sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="ClockTextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="WeaponDescriptionTextView">
+        <item name="android:breakStrategy">balanced</item>
+    </style>
+
+    <style name="MagazineSizeSwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TimeBnSwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="FiringModeSwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="FullReloadSwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="TacticalReloadSwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ReloadMethodSwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="PickSwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ReadySwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ExplosionDelaySwitcher">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="DescriptionTextView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
 </resources>

@@ -97,56 +97,6 @@ public class SplashScreenActivity extends AppCompatActivity {
         });
     }
 
-    class DownloadFile extends AsyncTask<String, Integer, Long> {
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected Long doInBackground(String... aurl) {
-            int count;
-            try {
-                URL url = new URL((String) aurl[0]);
-                URLConnection conexion = url.openConnection();
-                conexion.connect();
-                String targetFileName = "sanhok" + ".png";//Change name and subname
-                int lenghtOfFile = conexion.getContentLength();
-                String PATH = Environment.getExternalStorageDirectory() + "/PUBGuide/";
-                File folder = new File(PATH);
-                if (!folder.exists()) {
-                    folder.mkdir();//If there is no folder it will be created.
-                    Log.d("download", "created folder");
-                } else {
-                    File file = new File(Environment.getExternalStorageDirectory() + "/PUBGuide/sanhok.jpg");
-                    if (file.exists())
-                        return null;
-                }
-                InputStream input = new BufferedInputStream(url.openStream());
-                OutputStream output = new FileOutputStream(PATH + targetFileName);
-                byte data[] = new byte[1024];
-                long total = 0;
-                while ((count = input.read(data)) != -1) {
-                    total += count;
-                    output.write(data, 0, count);
-                    Log.d("download", "written file");
-                }
-                output.flush();
-                output.close();
-                input.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-
-        protected void onPostExecute(Long result) {
-
-        }
-    }
-
-
     private void StartAnimations() {
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
         anim.reset();

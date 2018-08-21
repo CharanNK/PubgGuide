@@ -31,6 +31,7 @@
                 <LinearLayout
                     android:id="@+id/cardImageLayout"
                     android:layout_width="match_parent"
+                    android:background="@drawable/loadingimage"
                     android:layout_height="0dp"
                     android:layout_weight="2">
 
@@ -74,22 +75,17 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1">
+
                         <TextView
+                            android:id="@+id/category_desc"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:paddingLeft="11dp"
-                            android:id="@+id/category_desc"
-                            android:textScaleX="1"
                             android:text="Know your weapons before you shoot"
-                            android:textColor="@color/colorLightWhite"/>
+                            android:textColor="@color/colorLightWhite"
+                            android:textScaleX="1" />
                     </LinearLayout>
 
-                    <!--<ImageView-->
-                    <!--android:layout_width="0dp"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--android:layout_gravity="right"-->
-                    <!--android:layout_weight="0.2"-->
-                    <!--android:src="@drawable/right_arrow" />-->
                     <com.romainpiel.shimmer.ShimmerTextView
                         android:id="@+id/arrow_text"
                         android:layout_width="0dp"

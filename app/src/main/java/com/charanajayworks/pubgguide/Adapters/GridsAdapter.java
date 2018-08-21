@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide;
 import com.charanajayworks.pubgguide.GridsActivity;
 import com.charanajayworks.pubgguide.Models.GridLayoutModel;
 import com.charanajayworks.pubgguide.R;
+import com.charanajayworks.pubgguide.ThrowablesActivity;
+import com.charanajayworks.pubgguide.WeaponsActivity;
 
 import java.util.List;
 
@@ -31,7 +33,7 @@ public class GridsAdapter extends RecyclerView.Adapter<GridsAdapter.ViewHolder> 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_layout,parent,false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.grid_layout, parent, false);
         return new ViewHolder(itemView);
     }
 
@@ -46,17 +48,34 @@ public class GridsAdapter extends RecyclerView.Adapter<GridsAdapter.ViewHolder> 
             @Override
             public void onClick(View view) {
                 TextView gridName = view.findViewById(R.id.gridTextView);
-                Log.d("gridName : ",gridName.getText().toString());
-                if(gridName.getText().toString().contains("Bows/Guns")){
-                    Intent intent = new Intent(mContext, GridsActivity.class);
-                    intent.putExtra("gridtype","guns");
-                    mContext.startActivity(intent);
-                }
-                if(gridName.getText().toString().contains("Attachments")){
-                    Log.d("Navigation","attachment");
-                    Intent intent = new Intent(mContext, GridsActivity.class);
-                    intent.putExtra("gridtype","attachment");
-                    mContext.startActivity(intent);
+                Log.d("gridName : ", gridName.getText().toString());
+
+                Intent intent = null;
+
+                switch (gridName.getText().toString()) {
+                    case "Bows/Guns":
+                        intent = new Intent(mContext, GridsActivity.class);
+                        intent.putExtra("gridtype", "guns");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Attachments":
+                        intent = new Intent(mContext, GridsActivity.class);
+                        intent.putExtra("gridtype", "attachment");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Assault Rifles":
+                        intent = new Intent(mContext, WeaponsActivity.class);
+                        intent.putExtra("weaponType","Assault Rifles");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Throwables":
+                        intent = new Intent(mContext, ThrowablesActivity.class);
+                        mContext.startActivity(intent);
+                        break;
+                    default:
+                        intent = new Intent(mContext, WeaponsActivity.class);
+                        mContext.startActivity(intent);
+                        break;
                 }
             }
         });
@@ -71,11 +90,12 @@ public class GridsAdapter extends RecyclerView.Adapter<GridsAdapter.ViewHolder> 
         private TextView gridLayoutText;
         private ImageView gridLayoutImage;
         private CardView gridCardView;
+
         public ViewHolder(View itemView) {
             super(itemView);
 
             gridLayoutText = itemView.findViewById(R.id.gridTextView);
-            gridLayoutImage= itemView.findViewById(R.id.gridImageView);
+            gridLayoutImage = itemView.findViewById(R.id.gridImageView);
             gridCardView = itemView.findViewById(R.id.gridCardLayout);
         }
     }

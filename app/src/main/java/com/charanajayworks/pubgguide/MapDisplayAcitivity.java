@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.charanajayworks.pubgguide.LayoutManagers.ZoomableImageView;
@@ -62,7 +63,7 @@ public class MapDisplayAcitivity extends AppCompatActivity {
         mapNameDisplay.setText(mapName);
 
 
-        Glide.with(mContext).asBitmap().load(mapSource).into(new SimpleTarget<Bitmap>() {
+        Glide.with(mContext).applyDefaultRequestOptions(new RequestOptions().placeholder(R.drawable.loadingimage).error(R.drawable.loadingimage)).asBitmap().load(mapSource).into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap resource, Transition<? super Bitmap> transition) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {

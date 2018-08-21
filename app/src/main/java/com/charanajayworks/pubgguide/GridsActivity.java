@@ -42,7 +42,7 @@ public class GridsActivity extends AppCompatActivity {
 
         gunsGridList = new ArrayList<>();
 
-        gunsGridList.add(new GridLayoutModel("Assault rifles","https://i.imgur.com/ZKo0HYi.png"));
+        gunsGridList.add(new GridLayoutModel("Assault Rifles","https://i.imgur.com/ZKo0HYi.png"));
         gunsGridList.add(new GridLayoutModel("Sub Machine Guns","https://i.imgur.com/3WFHpZc.png"));
         gunsGridList.add(new GridLayoutModel("Snipers","https://i.imgur.com/RgshBpg.png"));
         gunsGridList.add(new GridLayoutModel("Light Machine Guns","https://i.imgur.com/0ZV7QKx.png"));

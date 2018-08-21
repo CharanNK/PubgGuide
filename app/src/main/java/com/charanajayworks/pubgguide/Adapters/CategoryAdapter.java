@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -19,6 +20,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.charanajayworks.pubgguide.GeneralDataActivity;
@@ -62,7 +66,13 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
         holder.categoryName.setText(categoryModel.getCategoryName());
         holder.categoryName.setTypeface(typeface);
-        Glide.with(mContext).load(categoryModel.getCategoryImage()).into(new SimpleTarget<Drawable>() {
+        Glide.with(mContext).load(categoryModel.getCategoryImage()).apply(RequestOptions.placeholderOf(R.drawable.loadingimage)).into(new SimpleTarget<Drawable>() {
+            @Override
+            public void onLoadStarted(@Nullable Drawable resource) {
+                holder.cardImageLayout.setBackground(resource);
+            }
+
+
             @Override
             public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -87,10 +97,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 TextView name = view.findViewById(R.id.category_name);
                 Log.d("clickeNAme:", name.getText().toString());
                 Intent intent = null;
-                switch (name.getText().toString()){
-                    case "WEAPONS" :
+                switch (name.getText().toString()) {
+                    case "WEAPONS":
                         intent = new Intent(mContext, GridsActivity.class);
-                        intent.putExtra("gridtype","basic");
+                        intent.putExtra("gridtype", "basic");
                         break;
                     case "MAPS":
                         intent = new Intent(mContext, MapsActivity.class);
@@ -116,8 +126,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     case "ERANGEL":
                     case "MIRAMAR":
                     case "SANHOK":
-                        intent = new Intent(mContext,MapDisplayAcitivity.class);
-                        intent.putExtra("mapName",name.getText().toString());
+                        intent = new Intent(mContext, MapDisplayAcitivity.class);
+                        intent.putExtra("mapName", name.getText().toString());
                         break;
                     case "TIPS":
                         intent = new Intent(mContext, TipsActivity.class);
@@ -128,7 +138,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     case "ROYALE PASS":
                         intent = new Intent(mContext, GeneralDataActivity.class);
                         break;
-                    case "QUESTIONS" :
+                    case "QUESTIONS":
                         intent = new Intent(mContext, QuestionsActivity.class);
                         break;
                 }
