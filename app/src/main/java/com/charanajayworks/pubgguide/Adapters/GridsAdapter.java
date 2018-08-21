@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.charanajayworks.pubgguide.AmmunitionActivity;
 import com.charanajayworks.pubgguide.GridsActivity;
 import com.charanajayworks.pubgguide.Models.GridLayoutModel;
 import com.charanajayworks.pubgguide.R;
@@ -72,9 +73,14 @@ public class GridsAdapter extends RecyclerView.Adapter<GridsAdapter.ViewHolder> 
                         intent = new Intent(mContext, ThrowablesActivity.class);
                         mContext.startActivity(intent);
                         break;
-                    default:
-                        intent = new Intent(mContext, WeaponsActivity.class);
+                    case "Ammunition":
+                        intent = new Intent(mContext, AmmunitionActivity.class);
                         mContext.startActivity(intent);
+                        break;
+                    default:
+//                        intent = new Intent(mContext, WeaponsActivity.class);
+//                        intent.putExtra("weaponType","no weapon");
+//                        mContext.startActivity(intent);
                         break;
                 }
             }

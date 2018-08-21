@@ -34,7 +34,7 @@ public class GridsActivity extends AppCompatActivity {
 
         weaponsGridList.add(new GridLayoutModel("Bows/Guns","https://i.imgur.com/zgfiWXw.png"));
         weaponsGridList.add(new GridLayoutModel("Melee","https://i.imgur.com/RkjDRHo.png"));
-        weaponsGridList.add(new GridLayoutModel("Ammuniiton","https://i.imgur.com/kYwffmf.png"));
+        weaponsGridList.add(new GridLayoutModel("Ammunition","https://i.imgur.com/kYwffmf.png"));
         weaponsGridList.add(new GridLayoutModel("Equipment","https://i.imgur.com/UgKsdyJ.png"));
         weaponsGridList.add(new GridLayoutModel("Throwables","https://i.imgur.com/PEVJRyw.png"));
         weaponsGridList.add(new GridLayoutModel("Consumables","https://i.imgur.com/W2jC0Gl.png"));

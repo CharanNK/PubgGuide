@@ -16,8 +16,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/frameLayout">
+            android:layout_toStartOf="@+id/frameLayout"
+            android:layout_toLeftOf="@+id/frameLayout">
 
             <TextView
                 android:id="@+id/ammo_title1"
@@ -44,11 +46,11 @@
         android:layout_width="match_parent"
         android:layout_height="210dp"
         android:layout_marginStart="@dimen/recycler_view_left_offset"
+        android:layout_marginLeft="9dp"
         android:layout_marginTop="18dp"
         android:clipChildren="false"
         android:overScrollMode="never"
-        app:layoutManager="com.ramotion.cardslider.CardSliderLayoutManager"
-        app:viewUpdater="com.ramotion.cardslider.examples.simple.cards.CardsUpdater" />
+        app:layoutManager="com.ramotion.cardslider.CardSliderLayoutManager" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -57,13 +59,15 @@
         android:gravity="center">
 
 
-        <TextView
+        <TextSwitcher
             android:id="@+id/ammo_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="10dp"
+            android:layout_marginRight="@dimen/padding10"
             android:layout_marginStart="20dp"
-            android:text="test"></TextView>
+            android:layout_marginLeft="@dimen/padding20"
+            android:text="test"></TextSwitcher>
     </LinearLayout>
 </LinearLayout>
