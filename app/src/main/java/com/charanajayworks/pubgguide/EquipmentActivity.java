@@ -12,7 +12,6 @@ import android.support.annotation.StyleRes;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -21,17 +20,17 @@ import android.widget.TextSwitcher;
 import android.widget.TextView;
 import android.widget.ViewSwitcher;
 
-import com.charanajayworks.pubgguide.Adapters.ConsumablesAdapter;
+import com.charanajayworks.pubgguide.Adapters.EquipmentAdapter;
 import com.charanajayworks.pubgguide.cards.SliderAdapter;
 import com.ramotion.cardslider.CardSliderLayoutManager;
 import com.ramotion.cardslider.CardSnapHelper;
 
 import java.util.ArrayList;
 
-public class ConsumablesActivity extends AppCompatActivity {
-    ArrayList<ConsumablesAdapter> consumablesList;
+public class EquipmentActivity extends AppCompatActivity {
+    ArrayList<EquipmentAdapter> equipmentsList;
 
-    private final String[] imageUrls = {"https://i.imgur.com/AYjQj7v.png","https://i.imgur.com/cDnLrrM.png", "https://i.imgur.com/g0rcftv.png","https://i.imgur.com/wqKv7tn.png"};
+    private final String[] imageUrls = {"https://i.imgur.com/gyHbJRp.png", "https://i.imgur.com/34ifn4M.png", "https://i.imgur.com/WU0RdHW.png", "https://i.imgur.com/cctbksj.png"};
 
     private final SliderAdapter sliderAdapter = new SliderAdapter(imageUrls, imageUrls.length, new OnCardClickListener());
 
@@ -46,8 +45,11 @@ public class ConsumablesActivity extends AppCompatActivity {
     private int currentPosition;
 
     private TextSwitcher descriptionSwitcher;
-    private TextSwitcher castTimeSwitcher;
     private TextSwitcher capacitySwitcher;
+    private TextSwitcher damageSwitcher;
+    private TextSwitcher durabilitySwitcher;
+    private TextSwitcher weightSwitcher;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,38 +57,44 @@ public class ConsumablesActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
-        setContentView(R.layout.consumablesactivity);
+        setContentView(R.layout.equipment_activity);
 
-        Log.d("ConsumablesActivity","oncreateCalled");
+        equipmentsList = new ArrayList<>();
 
-        consumablesList = new ArrayList<>();
-
-        consumablesList.add(new ConsumablesAdapter("Adrenaline Syringe","https://i.imgur.com/AYjQj7v.png","Adrenaline Syringes increase a character's boost by 100 instantly. Performing certain actions while casting this item will cancel it.","8 SECONDS CAST TIME","20"));
-        consumablesList.add(new ConsumablesAdapter("Energy Drink","https://i.imgur.com/cDnLrrM.png","Energy Drinks increase a character's boost by 40 instantly. Performing certain actions while casting this item will cancel it.","4 SECONDS CAST TIME","4"));
-        consumablesList.add(new ConsumablesAdapter("Painkiller","https://i.imgur.com/g0rcftv.png","Painkillers increase a character's boost by 60 instantly. Performing certain actions while casting this item will cancel it.","6 SECONDS CAST TIME","10"));
-        consumablesList.add(new ConsumablesAdapter("Bandage","https://i.imgur.com/wqKv7tn.png","Bandages heal a character's health by 10 overtime. Performing certain actions while casting this item will cancel it. It cannot heal character's health over 75.","4 SECONDS CAST TIME","2"));
+        equipmentsList.add(new EquipmentAdapter("Motorcycle Helmet (Level 1)","https://i.imgur.com/gyHbJRp.png","-","0.3","80","40"));
+        equipmentsList.add(new EquipmentAdapter("Military Helmet (Level 2)","https://i.imgur.com/34ifn4M.png","-","0.4","150","50"));
+        equipmentsList.add(new EquipmentAdapter("Spetsnaz Helmet (Level 3)","https://i.imgur.com/WU0RdHW.png","-","0.55","230","60"));
+        equipmentsList.add(new EquipmentAdapter("Police Vest (Level 1)","https://i.imgur.com/cctbksj.png","50","0.3","200","120"));
 
         initRecyclerView();
-        initWeaponTitle();
         initSwitchers();
+        initWeaponTitle();
     }
 
     private void initSwitchers() {
-        ConsumablesAdapter currentConsumable = consumablesList.get(0);
+        EquipmentAdapter currentEquipment = equipmentsList.get(0);
 
-        descriptionSwitcher = findViewById(R.id.weapon_description);
-        descriptionSwitcher.setFactory(new TextViewFactory(R.style.WeaponDescriptionTextView, true));
-        descriptionSwitcher.setInAnimation(this, R.anim.fade_in);
-        descriptionSwitcher.setOutAnimation(this, R.anim.fade_out);
-        descriptionSwitcher.setText(currentConsumable.getConsumableDesc());
-
-        castTimeSwitcher = findViewById(R.id.cast_time_value);
-        castTimeSwitcher.setFactory(new TextViewFactory(R.style.PickSwitcher,false));
-        castTimeSwitcher.setText(currentConsumable.getCastTime());
+//        descriptionSwitcher = findViewById(R.id.weapon_description);
+//        descriptionSwitcher.setFactory(new TextViewFactory(R.style.WeaponDescriptionTextView, true));
+//        descriptionSwitcher.setInAnimation(this, R.anim.fade_in);
+//        descriptionSwitcher.setOutAnimation(this, R.anim.fade_out);
+//        descriptionSwitcher.setText(currentEquipment.getEquipmentDesc());
 
         capacitySwitcher = findViewById(R.id.capacity_value);
         capacitySwitcher.setFactory(new TextViewFactory(R.style.ReadySwitcher,false));
-        capacitySwitcher.setText(currentConsumable.getCapacity());
+        capacitySwitcher.setText(currentEquipment.getCapacity());
+
+        damageSwitcher = findViewById(R.id.damage_value);
+        damageSwitcher.setFactory(new TextViewFactory(R.style.PickSwitcher,false));
+        damageSwitcher.setText(currentEquipment.getDamage());
+
+        durabilitySwitcher = findViewById(R.id.durability_value);
+        durabilitySwitcher.setFactory(new TextViewFactory(R.style.FullReloadSwitcher,false));
+        durabilitySwitcher.setText(currentEquipment.getDurability());
+
+        weightSwitcher = findViewById(R.id.weight_value);
+        weightSwitcher.setFactory(new TextViewFactory(R.style.FiringModeSwitcher,false));
+        weightSwitcher.setText(currentEquipment.getWeight());
     }
 
     private void initWeaponTitle() {
@@ -101,7 +109,7 @@ public class ConsumablesActivity extends AppCompatActivity {
 
         weapon1TextView.setX(weaponOffset1);
         weapon2TextView.setX(weaponOffset2);
-        weapon1TextView.setText(consumablesList.get(0).getConsumableName());
+        weapon1TextView.setText(equipmentsList.get(0).getEquipmentName());
         weapon2TextView.setAlpha(0f);
 
         weapon1TextView.setTypeface(Typeface.createFromAsset(getAssets(), "open-sans-extrabold.ttf"));
@@ -171,7 +179,7 @@ public class ConsumablesActivity extends AppCompatActivity {
     }
 
     private void onActiveCardChange(int pos) {
-        ConsumablesAdapter consumableInPosition = consumablesList.get(pos % consumablesList.size());
+        EquipmentAdapter equipmentInPosition = equipmentsList.get(pos % equipmentsList.size());
 
         int animH[] = new int[]{R.anim.slide_in_right, R.anim.slide_out_left};
         int animV[] = new int[]{R.anim.slide_in_top, R.anim.slide_out_bottom};
@@ -185,17 +193,25 @@ public class ConsumablesActivity extends AppCompatActivity {
             animV[1] = R.anim.slide_out_top;
         }
 
-        setWeaponTitle(consumableInPosition.getConsumableName(), left2right);
+        setWeaponTitle(equipmentInPosition.getEquipmentName(), left2right);
 
-        descriptionSwitcher.setText(consumableInPosition.getConsumableDesc());
+//        descriptionSwitcher.setText(equipmentInPosition.getEquipmentDesc());
 
         capacitySwitcher.setInAnimation(this,animV[0]);
         capacitySwitcher.setOutAnimation(this,animV[1]);
-        capacitySwitcher.setText(consumableInPosition.getCapacity());
+        capacitySwitcher.setText(equipmentInPosition.getCapacity());
 
-        castTimeSwitcher.setInAnimation(this,animV[0]);
-        castTimeSwitcher.setOutAnimation(this,animV[1]);
-        castTimeSwitcher.setText(consumableInPosition.getCastTime());
+        damageSwitcher.setInAnimation(this,animV[0]);
+        damageSwitcher.setOutAnimation(this,animV[1]);
+        damageSwitcher.setText(equipmentInPosition.getDamage());
+
+        durabilitySwitcher.setInAnimation(this,animV[0]);
+        durabilitySwitcher.setOutAnimation(this,animV[1]);
+        durabilitySwitcher.setText(equipmentInPosition.getDurability());
+
+        weightSwitcher.setInAnimation(this,animV[0]);
+        weightSwitcher.setOutAnimation(this,animV[1]);
+        weightSwitcher.setText(equipmentInPosition.getWeight());
 
         currentPosition = pos;
     }
@@ -214,14 +230,14 @@ public class ConsumablesActivity extends AppCompatActivity {
         @SuppressWarnings("deprecation")
         @Override
         public View makeView() {
-            final TextView textView = new TextView(ConsumablesActivity.this);
+            final TextView textView = new TextView(EquipmentActivity.this);
 
             if (center) {
                 textView.setGravity(Gravity.CENTER);
             }
 
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
-                textView.setTextAppearance(ConsumablesActivity.this, styleId);
+                textView.setTextAppearance(EquipmentActivity.this, styleId);
             } else {
                 textView.setTextAppearance(styleId);
             }
@@ -247,7 +263,7 @@ public class ConsumablesActivity extends AppCompatActivity {
 
             final int clickedPosition = recyclerView.getChildAdapterPosition(view);
             if (clickedPosition == activeCardPosition) {
-                final Intent intent = new Intent(ConsumablesActivity.this, DetailsActivity.class);
+                final Intent intent = new Intent(EquipmentActivity.this, DetailsActivity.class);
                 intent.putExtra(DetailsActivity.BUNDLE_IMAGE_ID, imageUrls[activeCardPosition % imageUrls.length]);
 
                 if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
@@ -256,7 +272,7 @@ public class ConsumablesActivity extends AppCompatActivity {
                     final CardView cardView = (CardView) view;
                     final View sharedView = cardView.getChildAt(cardView.getChildCount() - 1);
                     final ActivityOptions options = ActivityOptions
-                            .makeSceneTransitionAnimation(ConsumablesActivity.this, sharedView, "shared");
+                            .makeSceneTransitionAnimation(EquipmentActivity.this, sharedView, "shared");
                     startActivity(intent, options.toBundle());
                 }
             } else if (clickedPosition > activeCardPosition) {

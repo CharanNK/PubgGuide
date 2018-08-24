@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.charanajayworks.pubgguide.AmmunitionActivity;
 import com.charanajayworks.pubgguide.AttachmentsActivity;
 import com.charanajayworks.pubgguide.ConsumablesActivity;
+import com.charanajayworks.pubgguide.EquipmentActivity;
 import com.charanajayworks.pubgguide.GridsActivity;
 import com.charanajayworks.pubgguide.MeleeActivity;
 import com.charanajayworks.pubgguide.Models.GridLayoutModel;
@@ -108,9 +109,15 @@ public class GridsAdapter extends RecyclerView.Adapter<GridsAdapter.ViewHolder> 
                     case "Melee":
                         intent = new Intent(mContext, MeleeActivity.class);
                         mContext.startActivity(intent);
+                        break;
                     case "Consumables":
                         intent = new Intent(mContext, ConsumablesActivity.class);
                         mContext.startActivity(intent);
+                        break;
+                    case "Equipment":
+                        intent = new Intent(mContext, EquipmentActivity.class);
+                        mContext.startActivity(intent);
+                        break;
                     default:
 //                        intent = new Intent(mContext, WeaponsActivity.class);
 //                        intent.putExtra("weaponType","no weapon");
