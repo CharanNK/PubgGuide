@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:layout_marginTop="30dp">
+
+        <FrameLayout
+            android:id="@+id/throwables"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@+id/frameLayout">
+
+            <TextView
+                android:id="@+id/tv_weapon_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_weapon_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        android:layout_marginStart="@dimen/recycler_view_left_offset"
+        android:layout_marginTop="18dp"
+        android:clipChildren="false"
+        android:overScrollMode="never"
+        app:layoutManager="com.ramotion.cardslider.CardSliderLayoutManager" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <TextSwitcher
+                    android:id="@+id/weapon_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="20dp"
+                    android:text="test"></TextSwitcher>
+
+                <TableLayout
+                    android:id="@+id/table_progressbars"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal">
+
+                    <TableRow
+                        android:id="@+id/p1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/p1_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Damage" />
+
+                        <ProgressBar
+                            android:id="@+id/hit_damage_progress"
+                            style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:max="120"
+                            android:min="0"
+                            android:paddingLeft="20dp"
+                            android:progress="90"
+                            android:progressDrawable="@drawable/progress_bar"
+                            android:progressTint="#f00" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:id="@+id/p3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:id="@+id/p3_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Impact" />
+
+                        <ProgressBar
+                            android:id="@+id/impactprogress"
+                            style="@android:style/Widget.Holo.Light.ProgressBar.Horizontal"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:max="40000"
+                            android:min="0"
+                            android:paddingLeft="25dp"
+                            android:progress="20"
+                            android:progressDrawable="@drawable/progress_bar" />
+                    </TableRow>
+
+                </TableLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/dividerGrey" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.1" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/magazine_size" />
+
+                        <TextView
+                            android:id="@+id/hit_range"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.6"
+                            android:gravity="center_vertical"
+                            android:text="Hit Range:" />
+
+                        <TextSwitcher
+                            android:id="@+id/hit_range_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/dividerGrey" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.1" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/pickupdelays" />
+
+                        <TextView
+                            android:id="@+id/pickup_delay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:gravity="center_vertical"
+                            android:text="Pickup Delay:" />
+
+                        <TextSwitcher
+                            android:id="@+id/pickup_delay_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="0.8"
+                            android:text="200" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@android:color/darker_gray" />
+
+                        <Space
+                            android:layout_width="5dp"
+                            android:layout_height="match_parent" />
+
+                        <ImageView
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:src="@drawable/pickupdelays" />
+
+                        <TextView
+                            android:id="@+id/ready_delay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:gravity="center_vertical"
+                            android:text="Ready Delay:" />
+
+                        <TextSwitcher
+                            android:id="@+id/ready_delay_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:text="200" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginTop="2dp"
+                        android:background="@color/dividerGrey" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+    </LinearLayout>
+</LinearLayout>

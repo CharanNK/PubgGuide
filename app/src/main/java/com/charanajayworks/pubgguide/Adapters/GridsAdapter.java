@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.charanajayworks.pubgguide.AmmunitionActivity;
+import com.charanajayworks.pubgguide.AttachmentsActivity;
 import com.charanajayworks.pubgguide.GridsActivity;
+import com.charanajayworks.pubgguide.MeleeActivity;
 import com.charanajayworks.pubgguide.Models.GridLayoutModel;
 import com.charanajayworks.pubgguide.R;
 import com.charanajayworks.pubgguide.ThrowablesActivity;
@@ -77,6 +79,34 @@ public class GridsAdapter extends RecyclerView.Adapter<GridsAdapter.ViewHolder> 
                         intent = new Intent(mContext, AmmunitionActivity.class);
                         mContext.startActivity(intent);
                         break;
+                    case "Upper Rail" :
+                        intent = new Intent(mContext, AttachmentsActivity.class);
+                        intent.putExtra("attachmentType","upper rail");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Muzzle Mods" :
+                        intent = new Intent(mContext,AttachmentsActivity.class);
+                        intent.putExtra("attachmentType","muzzle mods");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Lower Rail" :
+                        intent = new Intent(mContext,AttachmentsActivity.class);
+                        intent.putExtra("attachmentType","lower rail");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Magazines" :
+                        intent = new Intent(mContext,AttachmentsActivity.class);
+                        intent.putExtra("attachmentType","magazines");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Stocks" :
+                        intent = new Intent(mContext,AttachmentsActivity.class);
+                        intent.putExtra("attachmentType","stocks");
+                        mContext.startActivity(intent);
+                        break;
+                    case "Melee":
+                        intent = new Intent(mContext, MeleeActivity.class);
+                        mContext.startActivity(intent);
                     default:
 //                        intent = new Intent(mContext, WeaponsActivity.class);
 //                        intent.putExtra("weaponType","no weapon");

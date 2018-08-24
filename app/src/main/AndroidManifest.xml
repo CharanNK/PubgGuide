@@ -39,6 +39,8 @@
         <activity android:name=".ThrowablesActivity"/>
         <activity android:name=".DetailsActivity"/>
         <activity android:name=".AmmunitionActivity"/>
+        <activity android:name=".AttachmentsActivity"/>
+        <activity android:name=".MeleeActivity"/>
 
         <service android:name=".MyFirebaseInstanceIDService">
             <intent-filter>
