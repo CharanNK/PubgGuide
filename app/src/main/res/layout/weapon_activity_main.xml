@@ -46,7 +46,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/temperature_background">
+            android:background="@drawable/mapnamebackground">
 
             <TextSwitcher
                 android:id="@+id/ts_ammo"
@@ -93,9 +93,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="10dp"
+                    android:layout_marginLeft="@dimen/padding20"
                     android:layout_marginRight="@dimen/padding10"
                     android:layout_marginStart="20dp"
-                    android:layout_marginLeft="@dimen/padding20"
                     android:text="test"></TextSwitcher>
 
                 <LinearLayout
@@ -257,15 +257,18 @@
                                 android:paddingLeft="20dp"
                                 android:progress="300"
                                 android:progressDrawable="@drawable/progress_bar"></ProgressBar>
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="#FFF"
+                                android:layout_alignBottom="@id/rangeprogress"
+                                android:layout_alignLeft="@+id/rangeprogress"
+                                android:layout_alignRight="@id/rangeprogress"
+                                android:layout_alignTop="@id/rangeprogress"
+                                android:background="@android:color/transparent"
                                 android:paddingLeft="30dp"
                                 android:text="10000"
-                                android:layout_alignLeft="@+id/rangeprogress" android:layout_alignTop="@id/rangeprogress"
-                                android:layout_alignRight="@id/rangeprogress" android:layout_alignBottom="@id/rangeprogress"
-                                android:background="@android:color/transparent"/>
+                                android:textColor="#FFF" />
                         </RelativeLayout>
                     </TableRow>
                 </TableLayout>

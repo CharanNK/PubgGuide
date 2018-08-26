@@ -102,7 +102,7 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/magazine_size" />
+                            android:src="@drawable/reloadduration" />
 
                         <TextView
                             android:id="@+id/cast_time"
@@ -142,7 +142,7 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/pickupdelays" />
+                            android:src="@drawable/capacity" />
 
                         <TextView
                             android:id="@+id/capacity"

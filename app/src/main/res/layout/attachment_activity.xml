@@ -100,7 +100,8 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/pickupdelays" />
+                            android:padding="3dp"
+                            android:src="@drawable/capacity" />
 
                         <TextView
                             android:id="@+id/attachable_capacity"
@@ -133,7 +134,7 @@
                             android:layout_width="32dp"
                             android:layout_height="32dp"
                             android:layout_gravity="center_vertical"
-                            android:src="@drawable/pickupdelays" />
+                            android:src="@drawable/attachableweapon" />
 
                         <TextView
                             android:id="@+id/attachable_weapons"
@@ -165,7 +166,8 @@
                         <ImageView
                             android:layout_width="32dp"
                             android:layout_height="32dp"
-                            android:src="@drawable/pickupdelays" />
+                            android:padding="3dp"
+                            android:src="@drawable/attributesicon" />
 
                         <TextView
                             android:id="@+id/attachable_attributes"
